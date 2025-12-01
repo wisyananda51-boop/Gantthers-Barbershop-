@@ -519,17 +519,56 @@ body {
   margin-bottom: 10px;
 }
 
-.team-socials i {
-  margin: 0 6px;
-  color: #ff0033;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: 0.3s;
+/* --- SOCIAL ICON HOVER ANIMATION --- */
+
+.team-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.team-socials i:hover {
-  color: #ff1e56;
-  text-shadow: 0 0 8px #ff1e56;
+.social-item {
+  position: relative;
+  width: 65px;
+  height: 35px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Icon sosial */
+.social-item i {
+  font-size: 20px;
+  position: absolute;
+  transition: 0.35s ease;
+  transform: translateY(0);
+  opacity: 1;
+  color: #cc0000;
+  /* sesuaikan warna */
+}
+
+/* Username (muncul dari bawah) */
+.social-item .username {
+  position: absolute;
+  transition: 0.35s ease;
+  transform: translateY(25px);
+  opacity: 0;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #cc0000;
+}
+
+/* Hover effect */
+.social-item:hover i {
+  transform: translateY(35px);
+  opacity: 0;
+}
+
+.social-item:hover .username {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .scroll-animate {
@@ -804,7 +843,7 @@ body {
   /* NAVBAR */
   .navbar {
     padding: 15px 20px;
-    width: 100%;
+    width: 80%;
   }
 
   .nav-links {

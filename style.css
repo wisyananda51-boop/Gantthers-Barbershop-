@@ -1215,7 +1215,7 @@ html {
     /* NAVBAR */
     .navbar {
         padding: 15px 20px;
-        width: 83%;
+        width: 80%;
         /* Disesuaikan agar navbar full-width di mobile */
     }
 
@@ -1272,6 +1272,7 @@ html {
         margin-inline: 20px;
         margin-block: 20px;
         padding: 25px;
+        height: 100%;
     }
 
     .about-text {
