@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        alert('🎉 Terima kasih sudah mengisi form, ${name.value.trim()}!');
+        alert(`🎉 Terima kasih sudah mengisi form, ${name.value.trim()}!`);
     });
 });
 
