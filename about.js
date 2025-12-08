@@ -14,7 +14,7 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         }
 
         // Close mobile menu when link clicked
-        document.querySelector(".nav-links").classList.remove("active");
+        document.querySelector(".nav-links").classList.remove("show");
     });
 });
 
@@ -34,6 +34,70 @@ navLinks2.forEach(link => {
 
 // === Mobile menu toggle ===
 const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
 menuToggle.addEventListener("click", () => {
-    document.querySelector(".nav-links").classList.toggle("active");
+    navLinks.classList.toggle("show");
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ===================================
+    // 1. MENU TOGGLE Fungsionalitas
+    // ===================================
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // ===================================
+    // 2. SCROLL ANIMATION (Intersection Observer)
+    // ===================================
+
+    const animatedElements = document.querySelectorAll(
+        '.scroll-animate, .scroll-animate-left, .scroll-animate-right'
+    );
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    // ===================================
+    // 3. NAVBAR SCROLL EFFECT
+    // ===================================
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 });

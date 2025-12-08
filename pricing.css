@@ -573,6 +573,7 @@ header {
     border-top: 1px solid rgba(255, 0, 0, 0.2);
     font-size: 0.9rem;
     color: #888;
+    margin-top: 30px;
 }
 
 .footer-light {
@@ -695,11 +696,6 @@ header {
     line-height: 1.5;
 }
 
-/* =======================================
-    RESPONSIVE LAYOUTS (MOBILE FIRST)
-======================================= */
-
-/* === 1. Layar Ponsel Sangat Kecil (Max 320px) === */
 @media (max-width: 320px) {
 
     /* NAVBAR */
@@ -709,11 +705,25 @@ header {
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        height: 250px;
+        width: 120px;
+        border-radius: 30px;
+        text-align: center;
+        margin-inline: 200px;
     }
 
     .menu-toggle {
         display: block;
-        font-size: 1.8rem;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     .logo {
@@ -845,10 +855,25 @@ header {
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        height: 250px;
+        width: 120px;
+        border-radius: 30px;
+        text-align: center;
+        margin-inline: 200px;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     /* HERO SPLIT */
@@ -966,10 +991,25 @@ header {
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        height: 250px;
+        width: 120px;
+        border-radius: 30px;
+        text-align: center;
+        margin-inline: 600px;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     /* HERO SPLIT */

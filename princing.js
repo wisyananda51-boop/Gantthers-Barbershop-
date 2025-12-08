@@ -54,7 +54,7 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
     }
 
     // Close mobile menu when link clicked
-    document.querySelector(".nav-links").classList.remove("active");
+    document.querySelector(".nav-links").classList.remove("show");
   });
 });
 
@@ -74,8 +74,10 @@ navLinks2.forEach(link => {
 
 // === Mobile menu toggle ===
 const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
 menuToggle.addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("active");
+  navLinks.classList.toggle("show");
 });
 
 // Menambahkan focus effect untuk aksesibilitas
@@ -90,3 +92,4 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.45)';
   });
 });
+

@@ -176,6 +176,14 @@ html {
     padding: 100px 0;
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#about.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .about-container {
@@ -301,6 +309,14 @@ html {
     color: #fff;
     position: relative;
     background: url("unnamed\ \(2\)\ -\ Copy.png") center/cover no-repeat;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.service-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .service-container {
@@ -402,6 +418,14 @@ html {
     color: #fff;
     position: relative;
     font-family: "Poppins", sans-serif;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.header-service.is-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .hs-container {
@@ -511,6 +535,14 @@ html {
     text-align: center;
     padding: 100px 20px;
     position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.customer-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .customer-title {
@@ -602,6 +634,14 @@ html {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.sponsor-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .sponsor-container {
@@ -650,6 +690,17 @@ html {
 }
 
 /* SECTION GALLERY */
+.gallery-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.gallery-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -780,6 +831,14 @@ html {
     background-color: #312e2e;
     padding: 80px 0;
     font-family: Arial, sans-serif;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-section.is-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .testimonial-header {
@@ -924,6 +983,14 @@ html {
     padding: 80px 8% 40px;
     font-family: "Poppins", sans-serif;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+}
+
+.footer.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .footer-container {
@@ -1020,6 +1087,7 @@ html {
     border-top: 1px solid rgb(255 3 3 / 69%);
     font-size: 0.9rem;
     color: #888;
+    margin-top: 30px\;
 }
 
 .footer-light {
@@ -1102,17 +1170,81 @@ html {
     }
 }
 
-/* =======================================
-    RESPONSIVE LAYOUTS
-======================================= */
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 10px 30px;
+        width: 90%;
+    }
 
-/* 1. Layar Tablet Kecil/Lanskap (max 992px) */
+    .about-container {
+        width: 90%;
+        gap: 50px;
+    }
+
+    .about-card {
+        width: 350px;
+        height: 450px;
+    }
+
+    .hs-right img {
+        width: 380px;
+    }
+
+    .gallery {
+        margin-inline: 50px;
+    }
+
+    .testimonial-carousel-container {
+        padding: 0 40px;
+    }
+}
+
 @media (max-width: 992px) {
 
     /* NAVBAR */
     .navbar {
-        width: 83.5%;
+        padding: 15px 30px;
+        width: 95%;
     }
+
+    /* ABOUT SECTION */
+    #about {
+        padding: 80px 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+        width: 90%;
+        gap: 40px;
+    }
+
+    .about-card {
+        width: 80%;
+        max-width: 450px;
+        height: 450px;
+    }
+
+    .about-text {
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .about-card-overlay {
+        margin-inline: 30px;
+        margin-block: 30px;
+    }
+
+    /* SERVICE SECTION */
+    .service-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-card {
+        max-width: 45%;
+    }
+
 
     /* HEADER SERVICE SECTION */
     .hs-container {
@@ -1123,7 +1255,7 @@ html {
 
     .hs-right img {
         width: 90%;
-        max-width: 450px;
+        max-width: 400px;
     }
 
     .hs-list li {
@@ -1139,38 +1271,17 @@ html {
         margin-top: 50px;
     }
 
-    /* TESTIMONIAL */
-    .testimonial-carousel-container {
-        padding: 0 15px;
-    }
-
-    .testimonial-card {
-        flex: 0 0 calc(100% - 20px);
-        margin-right: 20px;
-    }
-
-    .prev-button {
-        left: -5px;
-    }
-
-    .next-button {
-        right: -5px;
+    /* CUSTOMER SECTION */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /* GALLERY */
     .gallery {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 150px;
-        margin-inline: 20px;
+        grid-auto-rows: 180px;
+        margin-inline: 30px;
         gap: 15px;
-    }
-
-    .t1,
-    .t3,
-    .t4,
-    .t5,
-    .t6 {
-        margin: 0 !important;
     }
 
     .t2 {
@@ -1207,24 +1318,123 @@ html {
         grid-column: 2 / 3;
         grid-row: 5 / 6;
     }
+
+    /* TESTIMONIAL */
+    .testimonial-carousel-container {
+        padding: 0 15px;
+    }
+
+    .prev-button {
+        left: -5px;
+    }
+
+    .next-button {
+        right: -5px;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
 }
 
-/* 2. Layar Ponsel (max 425px) - Menggabungkan 425px, 375px, dan 320px */
-@media (max-width: 425px) {
+/* 3. Layar Ponsel Besar (max 768px) */
+@media (max-width: 768px) {
 
-    /* NAVBAR */
     .navbar {
         padding: 15px 20px;
-        width: 80%;
-        /* Disesuaikan agar navbar full-width di mobile */
+        width: 95%;
     }
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        height: 250px;
+        width: 120px;
+        border-radius: 30px;
+        text-align: center;
+        margin-inline: 600px;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-card {
+        max-width: 90%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-column ul {
+        text-align: center;
+    }
+
+    .footer-column ul li a:hover {
+        padding-left: 0;
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+
+    .support-info li {
+        justify-content: center;
+    }
+}
+
+/* 4. Layar Ponsel Sedang (max 576px) */
+@media (max-width: 426px) {
+
+    /* NAVBAR */
+    .navbar {
+        padding: 15px 20px;
+        width: 83%;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        height: 250px;
+        width: 120px;
+        border-radius: 30px;
+        text-align: center;
+        margin-inline: 100px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     .logo {
@@ -1232,78 +1442,45 @@ html {
     }
 
     /* HERO SECTION */
-    .hero-content {
-        max-width: 90%;
-    }
-
     .hero-content h1 {
-        font-size: 2.2rem;
-        line-height: 1.3;
+        font-size: 2rem;
     }
 
     .hero-content p {
         font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    .btn-gold {
-        padding: 10px 20px;
     }
 
     /* ABOUT SECTION */
-    #about {
-        padding: 60px 0;
-    }
-
-    .about-container {
-        flex-direction: column;
-        width: 100%;
-        gap: 30px;
-    }
-
     .about-card {
-        width: 90%;
-        max-width: 400px;
+        width: 100%;
         height: 400px;
-        margin-inline: auto;
-    }
-
-    .about-card-overlay {
-        margin-inline: 20px;
-        margin-block: 20px;
-        padding: 25px;
-        height: 100%;
-    }
-
-    .about-text {
-        width: 90%;
-        text-align: center;
-        padding: 0 10px;
     }
 
     .about-title {
-        font-size: 26px;
-    }
-
-    .read-more {
-        margin-bottom: 20px;
+        font-size: 28px;
     }
 
     /* SERVICE SECTION */
-    .service-cards {
-        flex-direction: column;
-        gap: 25px;
+    .service-section {
+        padding: 50px 0 60px;
     }
 
     .service-main-text {
         font-size: 20px;
-        margin-bottom: 30px;
+    }
+
+    .service-card {
+        max-width: 100%;
     }
 
     /* HEADER SERVICE SECTION */
     .hs-right img {
-        width: 95%;
-        max-width: 350px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hs-title {
+        font-size: 1.8rem;
     }
 
     .hs-desc {
@@ -1319,27 +1496,17 @@ html {
         font-size: 1rem;
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-number {
-        font-size: 1.8rem;
-    }
-
     /* SPONSOR SECTION */
     .sponsor-container {
-        gap: 20px;
-        padding: 15px 10px;
+        gap: 15px;
     }
 
     .sponsor-item img,
     .sponsor-item1 img,
     .sponsor-item2 img,
     .sponsor-item4 img {
-        height: 45px;
-        width: auto;
-        margin-inline: 10px;
+        height: 40px;
+        margin-inline: 5px;
     }
 
     /* GALLERY SECTION */
@@ -1364,7 +1531,6 @@ html {
     .t7 {
         grid-column: 1 / 2;
         grid-row: auto;
-        margin: 0 !important;
     }
 
     /* TESTIMONIAL */
@@ -1377,36 +1543,30 @@ html {
     }
 
     .nav-button {
-        width: 30px;
-        height: 30px;
-        font-size: 1.2em;
+        width: 35px;
+        height: 35px;
+        font-size: 1.3em;
+    }
+
+    .prev-button {
+        left: -10px;
+    }
+
+    .next-button {
+        right: -10px;
     }
 
     /* FOOTER */
     .footer {
         padding: 50px 5% 20px;
     }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .support-info li {
-        justify-content: center;
-    }
 }
 
-/* 3. Penyesuaian Ekstra untuk Layar Sangat Kecil (max 320px) */
-@media (max-width: 321px) {
+/* 5. Penyesuaian Ekstra untuk Layar Sangat Kecil (max 375px) */
+@media (max-width: 376px) {
     .navbar {
         padding: 10px 10px;
-        width: 70%;
-    }
-
-    .logo {
-        font-size: 1.4rem;
+        width: 75%;
     }
 
     .lg {
@@ -1414,48 +1574,67 @@ html {
         height: 40px;
     }
 
-    .menu-toggle {
-        font-size: 1.5rem;
-    }
-
-    /* HERO SECTION */
     .hero-content h1 {
         font-size: 1.8rem;
     }
 
-    .hero-content p {
-        font-size: 0.9rem;
+    .about-title {
+        font-size: 24px;
     }
 
-    /* ABOUT SECTION */
-    .about-card {
-        height: 360px;
+    .testimonial-text {
+        font-size: 14px;
     }
 
-    .about-card-overlay {
-        padding: 20px;
-        margin-inline: 10px;
-        margin-block: 10px;
+    .nav-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .prev-button {
+        left: -15px;
+    }
+
+    .next-button {
+        right: -15px;
+    }
+}
+
+@media (max-width: 321px) {
+    .navbar {
+        padding: 10px 10px;
+        width: 70%;
+    }
+
+    .lg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
     }
 
     .about-title {
-        font-size: 22px;
+        font-size: 24px;
     }
 
-    /* SERVICE SECTION */
-    .service-main-text {
-        font-size: 16px;
-    }
-
-    /* GALLERY SECTION */
-    .gallery {
-        grid-auto-rows: 120px;
-        margin-inline: 5px;
-    }
-
-    /* TESTIMONIAL */
     .testimonial-text {
         font-size: 14px;
-        padding-inline: 10px;
+    }
+
+    .nav-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .prev-button {
+        left: -15px;
+    }
+
+    .next-button {
+        right: -15px;
     }
 }

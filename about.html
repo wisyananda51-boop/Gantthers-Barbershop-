@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Gantthers About</title>
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -15,16 +15,20 @@
             <img src="logo.png" alt="" class="lg">
             <div class="logo">Gant<span>thers</span></div>
         </div>
+
         <nav>
-            <ul class="nav-links">
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="store.html">Store</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
+
     </header>
 
     <section id="one-team" class="one-team-section">
@@ -42,30 +46,30 @@
         </div>
     </section>
 
-    <section id="story" class="story-section">
+    <section id="story" class="story-section scroll-animate">
         <div class="container">
-            <h2 class="section-title reveal">OUR <span class="text-accent">STORY</span></h2>
+            <h2 class="section-title scroll-animate">OUR <span class="text-accent">STORY</span></h2>
 
             <div class="story-grid">
-                <div class="story-timeline reveal">
+                <div class="story-timeline scroll-animate-left">
                     <div class="timeline-item">
                         <div class="timeline-year">2009</div>
                         <p class="timeline-desc">The journey began. Fueled by a passion for cuts, we laid the foundation
                             in our early rigid challenges.</p>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" style="transition-delay: 0.2s;">
                         <div class="timeline-year">2012</div>
                         <p class="timeline-desc">A year of acceleration. We embraced modern technologies, evolving from
                             simple functionality to holistic interactive visual experiences.</p>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" style="transition-delay: 0.4s;">
                         <div class="timeline-year">2016</div>
                         <p class="timeline-desc">Achieving professional maturity. We established ourselves as a trusted
                             tech partner, delivering stable, precise, and high-impact solutions.</p>
                     </div>
                 </div>
 
-                <div class="story-image reveal" style="transition-delay: 0.2s;">
+                <div class="story-image scroll-animate-right">
                     <img src="story-store.png" alt="Barbershop Front">
                 </div>
             </div>
@@ -73,10 +77,10 @@
     </section>
 
     <section class="team" id="section-team">
-        <div class="mission-card-container">
+        <div class="mission-card-container scroll-animate">
             <div class="mission-card">
 
-                <div class="owner-profile-area">
+                <div class="owner-profile-area scroll-animate-left">
                     <div class="image-wrapper">
                         <img src="brewok.png" alt="Photo of Mas Brewok, Owner" class="owner-image">
                     </div>
@@ -86,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="mission-content">
+                <div class="mission-content scroll-animate-right">
                     <h2 class="mission-title">OUR <span class="highlight-mission">MISSION</span></h2>
                     <p class="mission-text">
                         "Tradition. Respecting, inspiring, and practicing classic treatment
@@ -97,7 +101,7 @@
             </div>
         </div>
 
-        <div class="tagline-area">
+        <div class="tagline-area scroll-animate" style="transition-delay: 0.4s;">
             <blockquote class="tagline-quote">
                 "We want to make the men of Fort Worth look great, feel great and love their barber shop experience."
             </blockquote>
@@ -109,7 +113,7 @@
 
 
     <section class="team-section" id="project">
-        <div class="team-header">
+        <div class="team-header scroll-animate">
             <h5>OUR TEAM</h5>
             <h2>Meet Expert <span>Team.</span></h2>
             <p>Tim profesional kami terdiri dari barber berpengalaman yang ahli dalam gaya modern, klasik,
@@ -118,115 +122,94 @@
 
         <div class="team-grid">
 
-            <!-- CARD 1 -->
-            <div class="team-card">
+            <div class="team-card scroll-animate-left" style="transition-delay: 0s;">
                 <img src="nandong.jpg" alt="">
                 <div class="team-info">
                     <h3>Nanda</h3>
                     <p class="role">Designer</p>
                     <p>We turn ideas into meaningful and quality designs.</p>
                     <div class="team-socials">
-
                         <div class="social-item">
                             <i class="fa-brands fa-instagram"></i>
                             <span class="username">@wsy.nda_</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-tiktok"></i>
                             <span class="username">@wsy.nda_</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-twitter"></i>
                             <span class="username">@wisyananda</span>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
-            <!-- CARD 2 -->
-            <div class="team-card">
+            <div class="team-card scroll-animate-right" style="transition-delay: 0.1s;">
                 <img src="luqman.png" alt="">
                 <div class="team-info">
                     <h3>Luqman</h3>
                     <p class="role">Designer</p>
                     <p>We deliver professional designs that are both functional and aesthetic.</p>
                     <div class="team-socials">
-
                         <div class="social-item">
                             <i class="fa-brands fa-instagram"></i>
-                            <span class="username">@wsy.nda_</span>
+                            <span class="username">@maherr_0610</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-tiktok"></i>
-                            <span class="username">@wsy.nda_</span>
+                            <span class="username">@maherr_0610</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-twitter"></i>
-                            <span class="username">@wisyananda</span>
+                            <span class="username">@Luqman</span>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 3 -->
-            <div class="team-card">
+            <div class="team-card scroll-animate-left" style="transition-delay: 0.2s;">
                 <img src="fatah(2).png" alt="">
                 <div class="team-info">
                     <h3>Fatah</h3>
                     <p class="role">Designer</p>
                     <p>We focus on details to create valuable designs.</p>
                     <div class="team-socials">
-
                         <div class="social-item">
                             <i class="fa-brands fa-instagram"></i>
                             <span class="username">@ruuhy_fs</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-tiktok"></i>
                             <span class="username">@fatahillahruuhy</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-twitter"></i>
                             <span class="username">@ruuhy_fs</span>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 4 -->
-            <div class="team-card">
+            <div class="team-card scroll-animate-right" style="transition-delay: 0.3s;">
                 <img src="sigit.png" alt="">
                 <div class="team-info">
                     <h3>Sigit</h3>
                     <p class="role">Designer</p>
                     <p>We turn your concepts into powerful, professional visuals.</p>
                     <div class="team-socials">
-
                         <div class="social-item">
                             <i class="fa-brands fa-instagram"></i>
-                            <span class="username">@wsy.nda_</span>
+                            <span class="username">@mhasy_hasyim</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-tiktok"></i>
-                            <span class="username">@wsy.nda_</span>
+                            <span class="username">@mhasy_hasyim</span>
                         </div>
-
                         <div class="social-item">
                             <i class="fa-brands fa-twitter"></i>
-                            <span class="username">@wisyananda</span>
+                            <span class="username">@SigitHasyim</span>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -234,7 +217,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer scroll-animate" style="transition-delay: 0.5s;">
         <div class="footer-container">
             <div class="footer-column about">
                 <h2 class="footer-logo">GANTHERS<br><span>BARBERSHOP</span></h2>

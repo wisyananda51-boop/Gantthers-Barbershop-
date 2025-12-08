@@ -13,7 +13,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-
 }
 
 body {
@@ -102,9 +101,9 @@ body {
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
+  animation: pop 0.4s ease forwards;
 }
 
-/* Animasi titik muncul */
 @keyframes pop {
   from {
     transform: translateX(-50%) scale(0);
@@ -182,6 +181,24 @@ body {
   opacity: 0.9;
 }
 
+/* Animasi section Hero */
+.one-team-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+  animation-name: fadeInSoft;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
+}
+
+.one-team-content > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.one-team-content > *:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
 @keyframes fadeInSoft {
   0% {
     opacity: 0;
@@ -192,42 +209,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideRightSoft {
-  0% {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade {
-  animation: fadeInSoft 1.2s ease forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 1.3s ease forwards;
-}
-
-.animate-slide-right {
-  animation: slideRightSoft 1.3s ease forwards;
 }
 
 .story-section {
@@ -291,6 +272,8 @@ body {
   border-radius: 4px;
   filter: grayscale(30%);
   transition: var(--transition);
+  width: 100%;
+  height: auto;
 }
 
 .story-image img:hover {
@@ -519,8 +502,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* --- SOCIAL ICON HOVER ANIMATION --- */
-
 .team-socials {
   display: flex;
   justify-content: center;
@@ -538,7 +519,6 @@ body {
   cursor: pointer;
 }
 
-/* Icon sosial */
 .social-item i {
   font-size: 20px;
   position: absolute;
@@ -546,10 +526,8 @@ body {
   transform: translateY(0);
   opacity: 1;
   color: #cc0000;
-  /* sesuaikan warna */
 }
 
-/* Username (muncul dari bawah) */
 .social-item .username {
   position: absolute;
   transition: 0.35s ease;
@@ -560,7 +538,6 @@ body {
   color: #cc0000;
 }
 
-/* Hover effect */
 .social-item:hover i {
   transform: translateY(35px);
   opacity: 0;
@@ -569,17 +546,6 @@ body {
 .social-item:hover .username {
   transform: translateY(0);
   opacity: 1;
-}
-
-.scroll-animate {
-  opacity: 1;
-  transform: translateY(60px);
-  transition: 0.8s ease-out;
-}
-
-.scroll-animate.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .footer {
@@ -685,6 +651,7 @@ body {
   border-top: 1px solid rgba(255, 0, 0, 0.2);
   font-size: 0.9rem;
   color: #888;
+  margin-top: 30px;
 }
 
 .footer-light {
@@ -708,318 +675,155 @@ body {
   }
 }
 
-/* =======================================
-    RESPONSIVE LAYOUTS (MOBILE FIRST)
-======================================= */
+/* ======================================= */
+/* SCROLL ANIMATION CLASSES */
+/* ======================================= */
 
-/* === 1. Layar Ponsel Sangat Kecil (Max 320px) === */
-@media (max-width: 320px) {
-
-  /* NAVBAR */
-  .navbar {
-    padding: 10px 10px;
-    width: 78%;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 1.8rem;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  /* ONE TEAM SECTION */
-  .one-team-section {
-    height: auto;
-    padding: 80px 10px;
-    text-align: center;
-  }
-
-  .one-team-title {
-    font-size: 2rem;
-  }
-
-  .one-team-desc {
-    max-width: 100%;
-    font-size: 0.9rem;
-    margin: auto;
-  }
-
-  /* STORY SECTION */
-  .story-section {
-    padding: 60px 10px;
-  }
-
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
-
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .story-image {
-    order: -1;
-  }
-
-  .story-timeline {
-    padding-left: 10px;
-    border-left: none;
-  }
-
-  .timeline-item::before {
-    left: -20px;
-    top: 0;
-  }
-
-  /* MISSION CARD (TEAM) */
-  .mission-card {
-    flex-direction: column;
-    padding: 20px 15px 50px 15px;
-  }
-
-  .image-wrapper {
-    width: 200px;
-    height: 180px;
-  }
-
-  .owner-name-tag {
-    bottom: -20px;
-  }
-
-  .mission-title {
-    font-size: 24px;
-    text-align: center;
-  }
-
-  .mission-text {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .tagline-quote {
-    font-size: 20px;
-  }
-
-  /* TEAM SECTION */
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .team-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 15px;
-  }
-
-  .team-card img {
-    margin: 0 0 10px;
-    width: 100px;
-    height: 100px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 40px 5% 15px;
-  }
-
-  .footer-container {
-    gap: 20px;
-  }
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === 2. Layar Ponsel Standar (321px - 425px) === */
-@media (min-width: 321px) and (max-width: 425px) {
-
-  /* NAVBAR */
-  .navbar {
-    padding: 15px 20px;
-    width: 80%;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  /* ONE TEAM SECTION */
-  .one-team-section {
-    height: auto;
-    padding: 90px 20px;
-    text-align: center;
-  }
-
-  .one-team-title {
-    font-size: 2.3rem;
-  }
-
-  .one-team-desc {
-    max-width: 100%;
-    margin: auto;
-  }
-
-  /* STORY SECTION */
-  .story-section {
-    padding: 70px 20px;
-  }
-
-  .section-title {
-    font-size: 30px;
-    margin-bottom: 50px;
-  }
-
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .story-image {
-    order: -1;
-    width: 100%;
-  }
-
-  .story-image img {
-    width: 100%;
-  }
-
-  .story-timeline {
-    padding-left: 20px;
-  }
-
-  /* MISSION CARD (TEAM) */
-  .mission-card {
-    flex-direction: column;
-    padding: 30px 20px 60px 20px;
-  }
-
-  .image-wrapper {
-    width: 250px;
-    height: 200px;
-  }
-
-  .mission-title {
-    font-size: 28px;
-    text-align: center;
-  }
-
-  .mission-text {
-    font-size: 18px;
-    text-align: center;
-  }
-
-  .tagline-quote {
-    font-size: 24px;
-  }
-
-  /* TEAM SECTION */
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    max-width: 90%;
-  }
-
-  .team-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .team-card img {
-    margin: 0 0 15px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 60px 5% 30px;
-  }
-
-  .footer-container {
-    gap: 40px;
-    grid-template-columns: 1fr;
-  }
-
-  .support-info li {
-    justify-content: center;
-  }
-
-  .footer-column {
-    text-align: center;
-  }
-
-  .footer-column ul li a:hover {
-    padding-left: 0;
-  }
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* === 3. Layar Tablet (Max 768px) - Menggabungkan responsive sebelumnya */
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+}
+
+.scroll-animate-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+}
+
+.scroll-animate-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ======================================= */
+/* MEDIA QUERIES & MOBILE NAVBAR */
+/* ======================================= */
+
 @media (max-width: 768px) {
-  /* Navbar sudah diatur di atas */
+    
+    /* NAVBAR MOBILE */
+    .navbar {
+        padding: 15px 20px;
+    }
 
-  /* ONE TEAM SECTION */
-  .one-team-section {
-    padding-left: 5%;
-  }
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--text-main);
+        z-index: 1001;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: #111;
+        text-align: center;
+        padding: 20px 0;
+        
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        
+        pointer-events: none; 
+        visibility: hidden; 
+    }
+    
+    .nav-links li {
+        padding: 10px 0;
+    }
+    
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto; 
+        visibility: visible;
+    }
+    
+    .nav-links a.active::after {
+        display: none;
+    }
+    
+    /* KONTEN MOBILE */
+    .one-team-section {
+        height: auto;
+        padding: 90px 5%;
+        text-align: center;
+    }
+    
+    .one-team-content {
+        max-width: 100%;
+    }
+    
+    .story-section {
+        padding: 80px 20px;
+    }
 
-  /* STORY SECTION */
-  .story-section {
-    padding: 80px 50px;
-  }
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .story-image {
+        order: -1;
+    }
+    
+    .mission-card {
+        flex-direction: column;
+        padding: 30px 20px 60px 20px;
+    }
 
-  .story-grid {
-    grid-template-columns: 1fr;
-  }
+    .mission-content {
+        text-align: center;
+        padding-top: 10px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .team-card {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  /* MISSION CARD (TEAM) */
-  .mission-card {
-    flex-direction: column;
-    padding: 30px 20px 60px 20px;
-  }
+    .team-card img {
+        margin: 0 0 15px;
+    }
 
-  .owner-profile-area {
-    margin-bottom: 20px;
-  }
+    .footer {
+        text-align: center;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 
-  .mission-content {
-    text-align: center;
-    padding-top: 0;
-  }
-
-  .owner-name-tag {
-    bottom: -25px;
-  }
-
-  .mission-title {
-    font-size: 1.8em;
-  }
-
-  .tagline-quote {
-    font-size: 1.5em;
-  }
-
-  /* TEAM SECTION */
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-  }
-
-  .footer-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px 20px;
-  }
+    .footer-column {
+        padding: 0 10px;
+    }
 }
