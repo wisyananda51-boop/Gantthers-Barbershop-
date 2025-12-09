@@ -108,3 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// === ACTIVE NAV FOR MULTIPLE PAGES ===
+const currentPage = window.location.pathname.split("/").pop(); // nama file saat ini
+const navLinks2 = document.querySelectorAll(".nav-links a");
+
+navLinks2.forEach(link => {
+  const linkPage = link.getAttribute("href");
+
+  if (linkPage === currentPage) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
+  }
+});
