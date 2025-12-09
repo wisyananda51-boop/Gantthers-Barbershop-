@@ -1,95 +1,110 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Select all elements to animate
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
+    // 1. Intersection Observer untuk Animasi Saat Scroll
+    const animateElements = document.querySelectorAll(
+        '.navbar, .hero-split, .promo-text, header, .grid, .tabs, .package-grid, .special-grid, .footer, .icon-grid-container'
+    );
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Pemicu saat 10% elemen terlihat
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+
+                // Logika Animasi Berurutan (Grid Card, Package Card, Footer Column)
+                
+                // Animasi Icon Grid Quadrant
+                if (entry.target.classList.contains('icon-grid-container')) {
+                    const quadrants = entry.target.querySelectorAll('.grid-quadrant');
+                    quadrants.forEach((quadrant, index) => {
+                        setTimeout(() => {
+                            quadrant.classList.add('animate-in');
+                        }, index * 150); 
+                    });
+                }
+                
+                // Animasi Card (Discount Grid)
+                if (entry.target.classList.contains('grid')) {
+                    const cards = entry.target.querySelectorAll('.card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-in');
+                        }, index * 100); 
+                    });
+                }
+
+                // Animasi Package Card
+                if (entry.target.classList.contains('package-grid')) {
+                    const cards = entry.target.querySelectorAll('.pkg-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-in');
+                        }, index * 100); 
+                    });
+                }
+
+                // Animasi Special Card (Slide In Left/Right)
+                if (entry.target.classList.contains('special-grid')) {
+                    const specialCards = entry.target.querySelectorAll('.special-card');
+                    specialCards.forEach((card, index) => {
+                         setTimeout(() => {
+                            card.classList.add('animate-in');
+                        }, index * 150); 
+                    });
+                }
+
+                // Animasi Footer Column
+                if (entry.target.classList.contains('footer')) {
+                    const columns = entry.target.querySelectorAll('.footer-column');
+                    columns.forEach((column, index) => {
+                         setTimeout(() => {
+                            column.classList.add('animate-in');
+                        }, index * 150); 
+                    });
+                }
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Mulai mengamati elemen
+    animateElements.forEach(el => {
+        el.classList.remove('animate-in'); 
+        observer.observe(el);
     });
-  }, observerOptions);
+    
+    // Amati elemen 'grid-quadrant' secara terpisah
+    document.querySelectorAll('.grid-quadrant').forEach(el => {
+         el.classList.remove('animate-in'); 
+         // Tidak perlu di observe karena sudah di-handle oleh parent .icon-grid-container
+    });
 
-  const elements = document.querySelectorAll('.scroll-animate');
-  elements.forEach(el => observer.observe(el));
-});
 
-// Fungsi Tabs Package
-function openTab(evt, tabName) {
-  // 1. Sembunyikan semua konten tab
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tab-content");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+    // 2. Efek Scroll Navbar
+    const navbar = document.querySelector('.navbar');
+    // Tambahkan animate-in saat DOM dimuat agar navbar muncul sekali di awal
+    navbar.classList.add('animate-in'); 
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-  // 2. Hapus class 'active' dari semua tombol
-  tablinks = document.getElementsByClassName("btn");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+    // 3. Toggle Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-  // 3. Munculkan tab yang dipilih & set tombol jadi active
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// === Navbar scroll effect ===
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
-  navbar.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-// === Smooth scroll navigation ===
-document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
     }
-
-    // Close mobile menu when link clicked
-    document.querySelector(".nav-links").classList.remove("show");
-  });
 });
-
-// === ACTIVE NAV FOR MULTIPLE PAGES ===
-const currentPage = window.location.pathname.split("/").pop(); // nama file saat ini
-const navLinks2 = document.querySelectorAll(".nav-links a");
-
-navLinks2.forEach(link => {
-  const linkPage = link.getAttribute("href");
-
-  if (linkPage === currentPage) {
-    link.classList.add("active");
-  } else {
-    link.classList.remove("active");
-  }
-});
-
-// === Mobile menu toggle ===
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
-
-// Menambahkan focus effect untuk aksesibilitas
-document.querySelectorAll('.card').forEach(card => {
-  card.setAttribute('tabindex', '0');
-
-  card.addEventListener('focus', () => {
-    card.style.boxShadow = '0 14px 40px rgba(0,0,0,0.6)';
-  });
-
-  card.addEventListener('blur', () => {
-    card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.45)';
-  });
-});
-

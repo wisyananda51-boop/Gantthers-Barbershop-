@@ -71,3 +71,62 @@ const navLinks = document.getElementById("nav-links");
 menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // 1. Tampilkan Navbar sekali di awal
+    // Diberi sedikit delay agar terlihat profesional
+    setTimeout(() => {
+        navbar.classList.add('animate-in');
+    }, 200);
+
+    // 2. Efek Scroll Navbar
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 3. Toggle Menu Mobile
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        // Bonus: Animasi X pada icon menu toggle
+        menuToggle.style.transform = navLinks.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
+    });
+
+
+    // 4. Intersection Observer untuk Animasi Fade-In saat elemen muncul
+    const animateElements = document.querySelectorAll(
+        '.hero-content, .divider, .form-box, .footer'
+    );
+
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Pemicu saat 10% elemen terlihat
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target); // Hentikan observasi setelah animasi
+            }
+        });
+    }, observerOptions);
+
+    // Mulai mengamati elemen
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Tambahkan observasi untuk sub-elemen divider (line)
+    document.querySelectorAll('.divider').forEach(el => {
+        observer.observe(el);
+    });
+});

@@ -56,11 +56,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.grid-quadrant.animate-in {
+    opacity: 1;
+    transform: none;
+}
+
+.icon-grid-container .grid-quadrant:nth-child(1) {
+    transform: translate(-20px, -20px);
+}
+
+.icon-grid-container .grid-quadrant:nth-child(2) {
+    transform: translate(20px, -20px);
+}
+
+.icon-grid-container .grid-quadrant:nth-child(3) {
+    transform: translate(-20px, 20px);
+}
+
+.icon-grid-container .grid-quadrant:nth-child(4) {
+    transform: translate(20px, 20px);
 }
 
 .grid-quadrant i {
     font-size: 4rem;
     color: #ff0000;
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Pro', sans-serif;
+    font-weight: 900;
 }
 
 .text-red {
@@ -84,6 +109,13 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.4s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.navbar.animate-in {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .navbar.scrolled {
@@ -149,9 +181,9 @@ body {
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
+    animation: pop 0.3s ease-out forwards;
 }
 
-/* Animasi titik muncul */
 @keyframes pop {
     from {
         transform: translateX(-50%) scale(0);
@@ -181,6 +213,26 @@ body {
     flex: 1;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-split.animate-in .hero-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-split.animate-in .hero-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-left {
+    transform: translateX(-100px);
+}
+
+.hero-right {
+    transform: translateX(100px);
 }
 
 .hero-left img,
@@ -189,6 +241,12 @@ body {
     height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
+    transition: transform 3s ease-out;
+}
+
+.hero-split:hover .hero-left img,
+.hero-split:hover .hero-right img {
+    transform: scale(1.05);
 }
 
 .hero-left h2,
@@ -202,12 +260,34 @@ body {
     font-weight: 800;
     letter-spacing: 2px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .promo-text {
     padding: 80px 20px;
     text-align: center;
     background-color: #1a1a1a;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.promo-text.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .icons-cross {
@@ -261,6 +341,14 @@ body {
 header {
     text-align: center;
     margin-bottom: 26px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+header.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .kicker {
@@ -279,12 +367,17 @@ header {
 .kicker::after {
     content: "";
     height: 3px;
-    width: 110px;
+    width: 0;
     background: var(--accent);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: -10px;
+    transition: width 0.5s ease-out;
+}
+
+header.animate-in .kicker::after {
+    width: 110px;
 }
 
 .grid {
@@ -301,7 +394,31 @@ header {
     background: var(--card-bg);
     border-radius: 14px;
     border: 1px solid var(--card-border);
-    transition: .25s ease;
+    transition: .25s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.grid .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.grid .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.grid .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.grid .card:nth-child(4) {
+    animation-delay: 0.4s;
 }
 
 .icon-wrap {
@@ -362,6 +479,7 @@ header {
     border-radius: 12px;
     font-size: 12px;
     color: var(--accent);
+    transition: transform 0.25s ease;
 }
 
 .price-pill {
@@ -396,6 +514,14 @@ header {
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s;
+}
+
+.tabs.animate-in {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .tabs-border {
@@ -414,11 +540,12 @@ header {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.3s ease;
 }
 
 .btn.active {
     background: #8b0000;
-    color: red;
+    color: #fff;
 }
 
 .package-grid {
@@ -433,6 +560,27 @@ header {
     background: #2F1E1E;
     text-align: left;
     border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.package-grid .pkg-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.package-grid .pkg-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.package-grid .pkg-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.pkg-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .pkg-card img {
@@ -441,6 +589,11 @@ header {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
+    transition: transform 0.5s ease;
+}
+
+.pkg-card:hover img {
+    transform: scale(1.05);
 }
 
 .pkg-info h4 {
@@ -477,6 +630,14 @@ header {
     padding: 80px 8% 40px;
     font-family: "Poppins", sans-serif;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.footer.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .footer-container {
@@ -484,6 +645,29 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 400px;
     justify-content: space-between;
+}
+
+.footer-column {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.footer.animate-in .footer-column {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-column:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.footer-column:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.footer-column:nth-child(3) {
+    transition-delay: 0.3s;
 }
 
 .footer-column h3 {
@@ -667,13 +851,24 @@ header {
 }
 
 .special-card {
-    background: #0f0f0f;
+    background: #2f2f2f;
     border: 1px solid #222;
     border-left: 5px solid #d32f2f;
     padding: 25px;
     border-radius: 8px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.special-grid.animate-in .special-card:nth-child(odd) {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.special-grid.animate-in .special-card:nth-child(even) {
+    animation: slideInRight 0.6s ease-out forwards;
 }
 
 .sc-header {
@@ -697,8 +892,6 @@ header {
 }
 
 @media (max-width: 320px) {
-
-    /* NAVBAR */
     .navbar {
         padding: 10px 10px;
     }
@@ -730,7 +923,6 @@ header {
         font-size: 1.5rem;
     }
 
-    /* HERO SPLIT */
     .hero-split {
         flex-direction: column;
         height: auto;
@@ -746,7 +938,6 @@ header {
         font-size: 2rem;
     }
 
-    /* PROMO TEXT */
     .promo-text {
         padding: 40px 15px;
     }
@@ -760,7 +951,6 @@ header {
         margin: 15px auto;
     }
 
-    /* SPECIAL DISCOUNT */
     .wrap {
         padding: 30px 15px;
         margin: 30px auto;
@@ -790,7 +980,6 @@ header {
         width: 100%;
     }
 
-    /* PACKAGES */
     .packages {
         padding: 40px 15px;
     }
@@ -815,7 +1004,6 @@ header {
         height: 150px;
     }
 
-    /* SPECIAL GRID (Di dalam Packages) */
     .special-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -829,7 +1017,6 @@ header {
         font-size: 0.8rem;
     }
 
-    /* FOOTER */
     .footer {
         padding: 40px 5% 15px;
         text-align: center;
@@ -845,10 +1032,7 @@ header {
     }
 }
 
-/* === 2. Layar Ponsel Standar (321px - 425px) === */
 @media (min-width: 321px) and (max-width: 425px) {
-
-    /* NAVBAR */
     .navbar {
         padding: 15px 20px;
     }
@@ -876,7 +1060,6 @@ header {
         display: flex;
     }
 
-    /* HERO SPLIT */
     .hero-split {
         flex-direction: column;
         height: auto;
@@ -892,7 +1075,6 @@ header {
         font-size: 2.5rem;
     }
 
-    /* PROMO TEXT */
     .promo-text {
         padding: 60px 20px;
     }
@@ -901,7 +1083,6 @@ header {
         font-size: 1.4rem;
     }
 
-    /* SPECIAL DISCOUNT */
     .wrap {
         padding: 40px 20px;
         margin: 40px auto;
@@ -931,7 +1112,6 @@ header {
         width: 100%;
     }
 
-    /* PACKAGES */
     .packages {
         padding: 60px 20px;
     }
@@ -954,7 +1134,6 @@ header {
         height: 180px;
     }
 
-    /* SPECIAL GRID (Di dalam Packages) */
     .special-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -964,7 +1143,6 @@ header {
         font-size: 1.2rem;
     }
 
-    /* FOOTER */
     .footer {
         padding: 60px 5% 30px;
         text-align: center;
@@ -981,10 +1159,7 @@ header {
 }
 
 
-/* === 3. Layar Tablet (Max 768px) - Menggabungkan responsive sebelumnya */
 @media (max-width: 768px) {
-
-    /* NAVBAR */
     .navbar {
         padding: 15px 30px;
     }
@@ -1012,7 +1187,6 @@ header {
         display: flex;
     }
 
-    /* HERO SPLIT */
     .hero-split {
         flex-direction: column;
         height: auto;
@@ -1028,17 +1202,14 @@ header {
         font-size: 3rem;
     }
 
-    /* PROMO TEXT */
     .promo-text {
         padding: 70px 30px;
     }
 
-    /* SPECIAL DISCOUNT */
     .grid {
         grid-template-columns: 1fr;
     }
 
-    /* PACKAGES */
     .packages {
         padding: 70px 30px;
     }
@@ -1047,12 +1218,10 @@ header {
         grid-template-columns: 1fr;
     }
 
-    /* SPECIAL GRID (Di dalam Packages) */
     .special-grid {
         grid-template-columns: 1fr;
     }
 
-    /* FOOTER */
     .footer {
         text-align: center;
     }
@@ -1067,7 +1236,6 @@ header {
     }
 }
 
-/* Tambahan: Grid Special Discount (Max 880px) */
 @media (max-width: 880px) {
     .grid {
         grid-template-columns: 1fr;
