@@ -1512,12 +1512,21 @@ html {
         gap: 15px;
     }
 
-    .sponsor-item img,
-    .sponsor-item1 img,
-    .sponsor-item2 img,
-    .sponsor-item4 img {
+    .sponsor-item img {
+        height: auto;
+    }
+
+    .sponsor-item2 img {
         height: 40px;
-        margin: 0 5px;
+        padding-left: 50px;
+    }
+
+    .sponsor-item4 img {
+        height: auto;
+    }
+
+    .sponsor-item1 img {
+        height: auto;
     }
 
     /* GALLERY SECTION */
