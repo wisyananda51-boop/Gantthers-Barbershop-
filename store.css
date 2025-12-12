@@ -690,6 +690,7 @@ body {
     top: 100%;
     right: 30px;
     width: 250px;
+    height: auto;
     background: #111;
     text-align: center;
     padding: 20px 0;

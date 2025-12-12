@@ -1369,8 +1369,9 @@ html {
         position: absolute;
         top: 100%;
         gap: 30px;
-        right: 30px;
-        width: 200px;
+        right: 20px;
+        width: 50%;
+        height: auto;
         background: #111;
         padding: 20px 0;
         border-radius: 22px;
