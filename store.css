@@ -569,41 +569,53 @@ body {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
 
-  /* NAVBAR */
   .navbar {
-    padding: 10px 10px;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 20px 30px;
-    height: 250px;
-    width: 120px;
-    border-radius: 30px;
-    text-align: center;
-    margin-inline: 130px;
+    padding: 12px 15px;
   }
 
   .menu-toggle {
     display: block;
+    z-index: 2001;
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    width: 200px;
+    background: #111;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 25px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .4s ease, transform .4s ease;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 2000;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
   }
 
   .nav-links.show {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .logo {
     font-size: 1.5rem;
   }
 
-  /* HEADER MAPS SECTION */
   .header-maps-section {
     padding: 60px 0 20px;
   }
@@ -611,25 +623,13 @@ body {
   .maps-title-line-1,
   .maps-title-line-2 {
     font-size: 2rem;
-    letter-spacing: 1px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-  }
-
-  .title-ampersand {
-    font-size: 1.5em;
-    margin: 0 10px;
-  }
-
-  .title-separator-line {
-    max-width: 100px;
+    margin: 40px 0 20px;
   }
 
   .maps-container iframe {
     height: 300px;
   }
 
-  /* HEAD STORE CARD SECTION */
   .head-store-section {
     padding: 60px 0;
   }
@@ -641,20 +641,13 @@ body {
   }
 
   .store-image-area {
-    flex: 0 0 auto;
     height: 200px;
-  }
-
-  .contact-item {
-    font-size: 14px;
-    margin: 15px 0;
   }
 
   .store-map iframe {
     height: 180px;
   }
 
-  /* BRANCHES SECTION */
   .branches-top,
   .branches-bottom {
     grid-template-columns: 1fr;
@@ -666,176 +659,86 @@ body {
     height: 160px;
   }
 
-  .branches-title {
-    font-size: 24px;
-  }
-
-  /* FOOTER */
   .footer {
     padding: 40px 5% 15px;
-  }
-
-  .footer-container {
-    gap: 20px;
-    grid-template-columns: 1fr;
-  }
-}
-
-/* === 2. Layar Ponsel Standar (321px - 425px) === */
-@media (min-width: 321px) and (max-width: 425px) {
-
-  /* NAVBAR */
-  .navbar {
-    padding: 15px 20px;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 20px 30px;
-    height: 250px;
-    width: 120px;
-    border-radius: 30px;
-    text-align: center;
-    margin-inline: 200px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  /* HEADER MAPS SECTION */
-  .header-maps-section {
-    padding: 70px 0 30px;
-  }
-
-  .maps-title-line-1,
-  .maps-title-line-2 {
-    font-size: 2.5rem;
-    margin-top: 60px;
-    margin-bottom: 25px;
-  }
-
-  .maps-container iframe {
-    height: 350px;
-  }
-
-  /* HEAD STORE CARD SECTION */
-  .head-store-section {
-    padding: 70px 0;
-  }
-
-  .head-store-card {
-    flex-direction: column;
-    padding: 25px 20px;
-    gap: 20px;
-  }
-
-  .store-image-area {
-    flex: 0 0 auto;
-    height: 250px;
-  }
-
-  .contact-item {
-    margin: 20px 0;
-  }
-
-  .store-map iframe {
-    height: 220px;
-  }
-
-  /* BRANCHES SECTION */
-  .branches-top,
-  .branches-bottom {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .branch-card.large {
-    height: 200px;
-  }
-
-  .branch-card.small {
-    height: 180px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 60px 5% 30px;
     text-align: center;
   }
 
   .footer-container {
-    gap: 40px;
     grid-template-columns: 1fr;
-  }
-
-  .support-info li {
-    justify-content: center;
+    gap: 20px;
   }
 }
 
-/* === 3. Layar Tablet (Max 768px) - Menggabungkan responsive sebelumnya */
-@media (max-width: 768px) {
 
-  /* NAVBAR */
+@media (min-width: 426px) and (max-width: 768px) {
+
   .navbar {
     padding: 15px 30px;
   }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 20px 30px;
-    height: 250px;
-    width: 120px;
-    border-radius: 30px;
-    text-align: center;
-    margin-inline: 600px;
-  }
-
   .menu-toggle {
     display: block;
+    font-size: 1.8rem;
+    z-index: 2001;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    width: 250px;
+    background: #111;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 25px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .4s ease, transform .4s ease;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 2000;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
   }
 
   .nav-links.show {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
   }
 
-  /* HEADER MAPS SECTION */
   .header-maps-section {
     padding: 60px 0;
   }
 
   .maps-title-line-1,
   .maps-title-line-2 {
-    font-size: 3em;
+    font-size: 2.8rem;
   }
 
   .maps-container iframe {
     height: 350px;
   }
 
-  /* HEAD STORE CARD SECTION */
   .head-store-card {
     flex-direction: column;
     gap: 20px;
   }
 
+  .store-photo {
+    width: 90%;
+    height: 70%;
+    margin: auto;
+  }
+
   .store-image-area {
-    flex: 0 0 auto;
     height: 300px;
   }
 
@@ -843,16 +746,11 @@ body {
     height: 200px;
   }
 
-  /* BRANCHES SECTION */
-  .branches-top {
-    grid-template-columns: 1fr;
-  }
-
+  .branches-top,
   .branches-bottom {
     grid-template-columns: 1fr;
   }
 
-  /* FOOTER */
   .footer {
     text-align: center;
   }
@@ -860,9 +758,5 @@ body {
   .footer-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px 20px;
-  }
-
-  .support-info li {
-    justify-content: center;
   }
 }

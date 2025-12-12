@@ -429,8 +429,11 @@ button:hover {
     }
 }
 
-/* === MEDIA QUERIES === */
+/* ============================
+   📌 MEDIA: 992px
+============================ */
 @media (max-width: 992px) {
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -445,32 +448,47 @@ button:hover {
     }
 }
 
+
+/* ============================
+   📌 MEDIA: 768px
+   – MOBILE & TABLET
+   – TOGGLE NAVBAR DENGAN ANIMASI
+============================ */
 @media (max-width: 768px) {
+
     .navbar {
         padding: 15px 20px;
     }
 
     .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #111;
         position: absolute;
-        top: 70px; /* Diubah agar tidak terlalu dekat dengan tepi atas */
-        left: 0;
-        width: 100%;
+        top: 70px;
+        gap: 30px;
+        right: 20px;
+        background: #111;
+        width: 180px;
+        border-radius: 20px;
         padding: 20px 0;
+        flex-direction: column;
         text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity .35s ease, transform .35s ease;
+        z-index: 999;
     }
 
     .nav-links.show {
-        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
     .menu-toggle {
         display: block;
     }
 
+    /* ==== HERO ==== */
     .hero {
         height: auto;
         min-height: 80vh;
@@ -507,16 +525,15 @@ button:hover {
         width: 100%;
         padding: 14px;
         border-radius: 20px;
-        float: none;
         margin-top: 20px;
     }
 
+    /* ==== FOOTER ==== */
     .footer {
         text-align: center;
     }
 
     .footer-container {
-        grid-template-columns: 1fr;
         gap: 40px;
     }
 
@@ -525,15 +542,20 @@ button:hover {
     }
 }
 
+
+/* ============================
+   📌 MEDIA: 425px
+============================ */
 @media (max-width: 425px) {
+
     .navbar {
         padding: 12px 15px;
     }
-    
+
     .logo {
         font-size: 1.6rem;
     }
-    
+
     .lg {
         width: 40px;
         height: 40px;
@@ -570,7 +592,12 @@ button:hover {
     }
 }
 
+
+/* ============================
+   📌 MEDIA: 320px
+============================ */
 @media (max-width: 320px) {
+
     .navbar {
         padding: 10px 10px;
     }

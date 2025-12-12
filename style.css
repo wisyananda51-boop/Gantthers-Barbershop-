@@ -1356,31 +1356,43 @@ html {
         width: 100%;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin-inline: 0;
-        /* Diperbaiki */
-        height: auto;
-        /* Diperbaiki */
-        border-radius: 0;
-        /* Diperbaiki */
-    }
-
     .menu-toggle {
         display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 2001;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        gap: 30px;
+        right: 70px;
+        width: 200px;
+        background: #111;
+        padding: 20px 0;
+        border-radius: 22px;
+        text-align: center;
+
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        visibility: hidden;
+        transition: opacity .35s ease, transform .35s ease;
+        z-index: 2000;
+    }
+
+    .nav-links li {
+        padding: 5px 10px;
     }
 
     .nav-links.show {
-        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        visibility: visible;
     }
 
     /* HERO SECTION */

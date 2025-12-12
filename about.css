@@ -736,12 +736,13 @@ body {
         flex-direction: column; 
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 70px;
+        width: 50%;
         height: auto;
         background: #111;
         text-align: center;
         padding: 20px 0;
+        border-radius: 30px;
         
         opacity: 0;
         transform: translateY(-10px);
@@ -762,15 +763,11 @@ body {
         visibility: visible;
     }
     
-    .nav-links a.active::after {
-        display: none;
-    }
-    
     /* KONTEN MOBILE */
     .one-team-section {
         height: auto;
-        padding: 90px 5%;
-        text-align: center;
+        padding: 200px 10%;
+        /* text-align: center; */
     }
     
     .one-team-content {
@@ -819,7 +816,6 @@ body {
     }
     
     .footer-container {
-        grid-template-columns: 1fr;
         gap: 40px;
     }
 

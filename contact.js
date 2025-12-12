@@ -91,15 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('scrolled');
         }
     });
-
-    // 3. Toggle Menu Mobile
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-        // Bonus: Animasi X pada icon menu toggle
-        menuToggle.style.transform = navLinks.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
-    });
-
-
+    
     // 4. Intersection Observer untuk Animasi Fade-In saat elemen muncul
     const animateElements = document.querySelectorAll(
         '.hero-content, .divider, .form-box, .footer'

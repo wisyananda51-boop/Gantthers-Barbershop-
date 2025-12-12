@@ -1,3 +1,11 @@
+// === Mobile menu toggle ===
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
 // === BRANCHES REVEAL ANIMATION ===
 const branchItems = document.querySelectorAll(".branch-item");
 
@@ -50,10 +58,3 @@ navLinks2.forEach(link => {
   }
 });
 
-// === Mobile menu toggle ===
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
