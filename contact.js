@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('scrolled');
         }
     });
-    
+
     // 4. Intersection Observer untuk Animasi Fade-In saat elemen muncul
     const animateElements = document.querySelectorAll(
         '.hero-content, .divider, .form-box, .footer'
